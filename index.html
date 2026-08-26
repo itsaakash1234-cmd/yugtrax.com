@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YugTraX — Journey Into More</title>
+
+<meta name="description"
+content="YugTraX — Journey Into More. Discover India beyond the checklist.">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#11110f;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.5;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
+/* ================= NAV ================= */
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:24px 5vw;
+
+  transition:.3s;
+}
+
+.nav.scrolled{
+  background:rgba(15,15,14,.88);
+  backdrop-filter:blur(15px);
+}
+
+.logo{
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:-1.5px;
+}
+
+.logo sup{
+  font-size:9px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  font-size:14px;
+}
+
+.nav-links a{
+  opacity:.9;
+}
+
+.nav-links a:hover{
+  opacity:1;
+}
+
+.talk{
+  border:1px solid rgba(255,255,255,.45);
+  padding:11px 17px;
+  border-radius:50px;
+}
+
+.menu{
+  display:none;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.4);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:21px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+  min-height:100vh;
+
+  position:relative;
+
+  display:flex;
+  align-items:flex-end;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(0,0,0,.18),
+    rgba(0,0,0,.82)
+  ),
+  url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+
+  padding:0 7vw 12vh;
+
+  max-width:1000px;
+}
+
+.eyebrow{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+
+  margin-bottom:22px;
+}
+
+.hero h1{
+
+  font-size:clamp(70px,11vw,155px);
+
+  line-height:.82;
+
+  letter-spacing:-7px;
+
+  margin-bottom:35px;
+}
+
+.hero h1 em{
+  font-style:italic;
+  font-weight:400;
+}
+
+.hero-copy{
+  max-width:540px;
+
+  color:#ddd;
+
+  font-size:19px;
+
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:30px;
+
+  padding:15px 20px;
+
+  border:1px solid #fff;
+
+  border-radius:50px;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  transition:.2s;
+}
+
+.btn:hover{
+  background:#fff;
+  color:#111;
+  transform:translateY(-2px);
+}
+
+.btn.ghost{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.35);
+}
+
+.scroll{
+  position:absolute;
+
+  right:5vw;
+  bottom:42px;
+
+  font-size:10px;
+
+  letter-spacing:2px;
+}
+
+/* ================= COMMON ================= */
+
+.section{
+  padding:120px 7vw;
+}
+
+.light{
+  background:#f3f0e9;
+  color:#111;
+}
+
+.label{
+  color:#777;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+  font-weight:bold;
+
+  margin-bottom:65px;
+}
+
+h2{
+
+  font-size:clamp(48px,7vw,105px);
+
+  line-height:.88;
+
+  letter-spacing:-5px;
+}
+
+h2 span{
+  font-weight:400;
+}
+
+/* ================= STATEMENT ================= */
+
+.statement{
+
+  padding:150px 7vw;
+
+  background:#f3f0e9;
+
+  color:#111;
+}
+
+.statement p:last-child{
+
+  max-width:650px;
+
+  color:#666;
+
+  font-size:18px;
+
+  line-height:1.7;
+
+  margin-top:38px;
+}
+
+/* ================= STORY ================= */
+
+.story-grid{
+
+  display:grid;
+
+  grid-template-columns:1.1fr .9fr;
+
+  gap:9vw;
+}
+
+.story-copy{
+
+  color:#555;
+
+  font-size:18px;
+
+  line-height:1.7;
+}
+
+.story-copy p{
+  margin-bottom:20px;
+}
+
+.story-copy strong{
+  color:#111;
+}
+
+.timeline{
+
+  display:flex;
+
+  gap:15px;
+
+  margin-top:40px;
+
+  align-items:center;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+}
+
+.timeline span{
+  color:#7654c8;
+  font-size:20px;
+}
+
+/* ================= DESTINATIONS ================= */
+
+.destination-head{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  gap:30px;
+
+  margin-bottom:55px;
+}
+
+.destination-head p{
+
+  max-width:390px;
+
+  color:#666;
+
+  line-height:1.6;
+}
+
+.destination-grid{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:18px;
+}
+
+.destination{
+
+  min-height:470px;
+
+  position:relative;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  background-size:cover;
+
+  background-position:center;
+
+  transition:.3s;
+}
+
+.destination:hover{
+  transform:translateY(-5px);
+}
+
+.destination.wide{
+
+  grid-column:span 2;
+
+  min-height:570px;
+}
+
+.destination::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+    transparent 25%,
+    rgba(0,0,0,.92)
+  );
+}
+
+.destination-content{
+
+  position:relative;
+
+  z-index:2;
+
+  padding:35px;
+
+  color:white;
+}
+
+.destination small{
+
+  font-size:10px;
+
+  letter-spacing:2px;
+}
+
+.destination h3{
+
+  font-size:clamp(45px,5vw,78px);
+
+  line-height:.9;
+
+  letter-spacing:-4px;
+
+  margin:12px 0;
+}
+
+.destination p{
+  color:#ddd;
+}
+
+.destination-link{
+
+  display:inline-block;
+
+  margin-top:20px;
+
+  font-size:13px;
+
+  font-weight:bold;
+}
+
+/* LADAKH */
+
+.ladakh{
+
+  background-image:
+
+  url("https://images.pexels.com/photos/32909865/pexels-photo-32909865.jpeg?auto=compress&cs=tinysrgb&w=1800");
+
+}
+
+/* KASHMIR */
+
+.kashmir{
+
+  background-image:
+
+  url("https://images.pexels.com/photos/33466692/pexels-photo-33466692.jpeg?auto=compress&cs=tinysrgb&w=1600");
+
+}
+
+/* KERALA */
+
+.kerala{
+
+  background-image:
+
+  url("https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1600&q=85");
+
+}
+
+/* RAJASTHAN */
+
+.rajasthan{
+
+  background-image:
+
+  url("https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1600&q=85");
+
+}
+
+/* MEGHALAYA */
+
+.meghalaya{
+
+  background-image:
+
+  url("https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1600&q=85");
+
+}
+
+/* GOA */
+
+.goa{
+
+  background-image:
+
+  url("https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1800&q=85");
+
+}
+
+/* ================= JOURNEYS ================= */
+
+.journeys{
+
+  background:#e9e6de;
+
+  color:#111;
+}
+
+.journey-head{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  gap:30px;
+
+  margin-bottom:55px;
+}
+
+.journey-head p{
+
+  max-width:420px;
+
+  color:#666;
+
+  line-height:1.6;
+}
+
+.journey-list{
+
+  border-top:1px solid #1113;
+}
+
+.journey{
+
+  display:grid;
+
+  grid-template-columns:60px 1fr auto;
+
+  align-items:center;
+
+  gap:20px;
+
+  padding:28px 0;
+
+  border-bottom:1px solid #1113;
+}
+
+.journey-number{
+
+  color:#888;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+}
+
+.journey h3{
+
+  font-size:25px;
+
+  margin-bottom:5px;
+}
+
+.journey p{
+  color:#666;
+}
+
+.journey strong{
+  font-size:13px;
+}
+
+/* ================= WHY ================= */
+
+.why{
+  background:#171716;
+}
+
+.why-grid{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:9vw;
+}
+
+.principles{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:40px 25px;
+}
+
+.principle{
+
+  border-top:1px solid rgba(255,255,255,.15);
+
+  padding-top:18px;
+}
+
+.principle b{
+  color:#b9a0ff;
+  font-size:11px;
+}
+
+.principle h3{
+  font-size:21px;
+  margin:13px 0 8px;
+}
+
+.principle p{
+  color:#aaa;
+  line-height:1.55;
+}
+
+/* ================= MANIFESTO ================= */
+
+.manifesto{
+
+  min-height:75vh;
+
+  display:flex;
+
+  align-items:center;
+
+  background:
+
+  linear-gradient(
+    rgba(0,0,0,.7),
+    rgba(0,0,0,.7)
+  ),
+
+  url("https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=2200&q=85");
+
+  background-size:cover;
+
+  background-position:center;
+}
+
+.manifesto-text{
+
+  padding:8vw;
+
+  font-size:clamp(50px,8vw,120px);
+
+  line-height:.83;
+
+  letter-spacing:-6px;
+
+  font-weight:bold;
+}
+
+.manifesto-text p{
+  margin:0;
+}
+
+.manifesto-text p:nth-child(even){
+  font-style:italic;
+  font-weight:400;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+
+  background:#f3f0e9;
+
+  color:#111;
+
+  text-align:center;
+
+  padding:145px 7vw;
+}
+
+.contact>p:not(.eyebrow){
+
+  max-width:580px;
+
+  margin:35px auto;
+
+  color:#666;
+
+  line-height:1.6;
+}
+
+.dark-btn{
+
+  background:#111;
+
+  color:#fff;
+
+  border-color:#111;
+}
+
+.dark-btn:hover{
+  background:#333;
+  color:#fff;
+}
+
+.contact-links{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:15px;
+
+  margin-top:50px;
+
+  color:#7654c8;
+
+  flex-wrap:wrap;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+  background:#111;
+
+  padding:45px 7vw;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+footer p{
+
+  color:#888;
+
+  font-size:13px;
+
+  margin-top:5px;
+}
+
+footer small{
+  color:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  .nav{
+    padding:18px 5vw;
+  }
+
+  .nav-links{
+
+    display:none;
+
+    position:absolute;
+
+    top:70px;
+
+    left:5vw;
+
+    right:5vw;
+
+    padding:22px;
+
+    background:rgba(15,15,14,.96);
+
+    border-radius:20px;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    backdrop-filter:blur(15px);
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    min-height:760px;
+  }
+
+  .hero-content{
+    padding:0 6vw 13vh;
+  }
+
+  .hero h1{
+
+    font-size:clamp(64px,19vw,110px);
+
+    letter-spacing:-5px;
+  }
+
+  .hero-copy{
+    font-size:17px;
+  }
+
+  .scroll{
+    display:none;
+  }
+
+  .section,
+  .statement,
+  .contact{
+    padding:90px 6vw;
+  }
+
+  .story-grid,
+  .why-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .destination-head,
+  .journey-head{
+    display:block;
+  }
+
+  .destination-head p,
+  .journey-head p{
+    margin-top:30px;
+  }
+
+  .destination-grid{
+    grid-template-columns:1fr;
+  }
+
+  .destination,
+  .destination.wide{
+    grid-column:span 1;
+    min-height:430px;
+  }
+
+  .destination.wide{
+    min-height:480px;
+  }
+
+  .destination-content{
+    padding:28px;
+  }
+
+  .principles{
+    grid-template-columns:1fr;
+  }
+
+  .journey{
+    grid-template-columns:38px 1fr;
+  }
+
+  .journey strong{
+    grid-column:2;
+  }
+
+  .manifesto{
+    min-height:65vh;
+  }
+
+  .manifesto-text{
+    padding:7vw 6vw;
+    font-size:clamp(48px,14vw,82px);
+    letter-spacing:-4px;
+  }
+
+  footer{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:25px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAV -->
+
+<header class="nav" id="nav">
+
+  <a class="logo" href="#top">
+    YugTraX<sup>®</sup>
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+
+    <a href="#story">
+      Our Story
+    </a>
+
+    <a href="#india">
+      Explore India
+    </a>
+
+    <a href="#why">
+      Why YugTraX
+    </a>
+
+    <a class="talk" href="#contact">
+      Let's Talk ↗
+    </a>
+
+  </nav>
+
+  <button
+    class="menu"
+    id="menu"
+    aria-label="Menu"
+    aria-expanded="false"
+  >
+    ☰
+  </button>
+
+</header>
+
+
+<main id="top">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <p class="eyebrow">
+      YUGTRAX / JOURNEY INTO MORE
+    </p>
+
+    <h1>
+      Journey<br>
+      <em>Into More.</em>
+    </h1>
+
+    <p class="hero-copy">
+      Travel beyond the checklist.
+      Find places, people and moments
+      that become stories.
+    </p>
+
+    <div class="buttons">
+
+      <a class="btn" href="#india">
+        Explore the journey ↓
+      </a>
+
+      <a class="btn ghost" href="#contact">
+        Plan my trip ↗
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="scroll">
+    SCROLL TO EXPLORE ↓
+  </div>
+
+</section>
+
+
+<!-- STATEMENT -->
+
+<section class="statement">
+
+  <p class="eyebrow">
+    NOT JUST A TRIP
+  </p>
+
+  <h2>
+    Don't just visit.<br>
+    <span>Experience.</span>
+  </h2>
+
+  <p>
+    YugTraX is an Indian travel brand built
+    around the idea that the best part of a journey
+    isn't the number of places you tick off —
+    it's what you feel, who you meet and the stories
+    you bring back.
+  </p>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="section light" id="story">
+
+  <div class="label">
+    01 / OUR STORY
+  </div>
+
+  <div class="story-grid">
+
+    <div>
+
+      <p class="eyebrow">
+        THREE YEARS. ONE JOURNEY.
+      </p>
+
+      <h2>
+        From <span>YATRAYUG</span><br>
+        to YugTraX.
+      </h2>
+
+    </div>
+
+
+    <div class="story-copy">
+
+      <p>
+        Three years ago, this journey started
+        as <strong>YATRAYUG</strong>.
+      </p>
+
+      <p>
+        Today, we're stepping into a new chapter.
+        The name is new. The energy is bigger.
+        The reason we started remains the same —
+        helping people travel more, experience more
+        and live more.
+      </p>
+
+      <div class="timeline">
+
+        <b>YATRAYUG</b>
+
+        <span>→</span>
+
+        <b>EVOLUTION</b>
+
+        <span>→</span>
+
+        <b>YUGTRAX</b>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DESTINATIONS -->
+
+<section class="section light" id="india">
+
+  <div class="label">
+    02 / EXPLORE INDIA
+  </div>
+
+
+  <div class="destination-head">
+
+    <div>
+
+      <p class="eyebrow">
+        INDIA, BUT MAKE IT AN EXPERIENCE.
+      </p>
+
+      <h2>
+        Where will<br>
+        <span>you go?</span>
+      </h2>
+
+    </div>
+
+    <p>
+      Mountains. Beaches. Deserts.
+      Rainforests. India has a different
+      story waiting around every corner.
+    </p>
+
+  </div>
+
+
+  <div class="destination-grid">
+
+
+    <!-- LADAKH -->
+
+    <a
+      class="destination wide ladakh"
+      href="#contact"
+    >
+
+      <div class="destination-content">
+
+        <small>
+          01 / NORTH
+        </small>
+
+        <h3>
+          Ladakh
+        </h3>
+
+        <p>
+          Roads that feel like another planet.
+        </p>
+
+        <span class="destination-link">
+          Plan this journey ↗
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- KASHMIR -->
+
+    <a
+      class="destination kashmir"
+      href="#contact"
+    >
+
+      <div class="destination-content">
+
+        <small>
+          02 / NORTH
+        </small>
+
+        <h3>
+          Kashmir
+        </h3>
+
+        <p>
+          Mountains, lakes & slow mornings.
+        </p>
+
+        <span class="destination-link">
+          Plan this journey ↗
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- KERALA -->
+
+    <a
+      class="destination kerala"
+      href="#contact"
+    >
+
+      <div class="destination-content">
+
+        <small>
+          03 / SOUTH
+        </small>
+
+        <h3>
+          Kerala
+        </h3>
+
+        <p>
+          Green, wild & beautifully unhurried.
+        </p>
+
+        <span class="destination-link">
+          Plan this journey ↗
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- RAJASTHAN -->
+
+    <a
+      class="destination rajasthan"
+      href="#contact"
+    >
+
+      <div class="destination-content">
+
+        <small>
+          04 / WEST
+        </small>
+
+        <h3>
+          Rajasthan
+        </h3>
+
+        <p>
+          Colour, culture & timeless stories.
+        </p>
+
+        <span class="destination-link">
+          Plan this journey ↗
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- MEGHALAYA -->
+
+    <a
+      class="destination meghalaya"
+      href="#contact"
+    >
+
+      <div class="destination-content">
+
+        <small>
+          05 / EAST
+        </small>
+
+        <h3>
+          Meghalaya
+        </h3>
+
+        <p>
+          Where the clouds come alive.
+        </p>
+
+        <span class="destination-link">
+          Plan this journey ↗
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- GOA -->
+
+    <a
+      class="destination wide goa"
+      href="#contact"
+    >
+
+      <div class="destination-content">
+
+        <small>
+          06 / COAST
+        </small>
+
+        <h3>
+          Goa
+        </h3>
+
+        <p>
+          Sun, sea & good energy.
+        </p>
+
+        <span class="destination-link">
+          Plan this journey ↗
+        </span>
+
+      </div>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+<!-- JOURNEYS -->
+
+<section class="section journeys">
+
+  <div class="label">
+    03 / FEATURED JOURNEYS
+  </div>
+
+  <div class="journey-head">
+
+    <div>
+
+      <p class="eyebrow">
+        NOT A PACKAGE. YOUR JOURNEY.
+      </p>
+
+      <h2>
+        Start with a<br>
+        <span>destination.</span>
+      </h2>
+
+    </div>
+
+    <p>
+      Tell us where you want to go,
+      when you're travelling and what
+      kind of experience you want.
+    </p>
+
+  </div>
+
+
+  <div class="journey-list">
+
+
+    <a class="journey" href="#contact">
+
+      <span class="journey-number">
+        01
+      </span>
+
+      <div>
+
+        <h3>
+          Ladakh Escape
+        </h3>
+
+        <p>
+          Leh · Nubra · Pangong
+        </p>
+
+      </div>
+
+      <strong>
+        Customise ↗
+      </strong>
+
+    </a>
+
+
+    <a class="journey" href="#contact">
+
+      <span class="journey-number">
+        02
+      </span>
+
+      <div>
+
+        <h3>
+          Kashmir Stories
+        </h3>
+
+        <p>
+          Srinagar · Gulmarg · Pahalgam
+        </p>
+
+      </div>
+
+      <strong>
+        Customise ↗
+      </strong>
+
+    </a>
+
+
+    <a class="journey" href="#contact">
+
+      <span class="journey-number">
+        03
+      </span>
+
+      <div>
+
+        <h3>
+          Meghalaya Unfiltered
+        </h3>
+
+        <p>
+          Shillong · Cherrapunji · Dawki
+        </p>
+
+      </div>
+
+      <strong>
+        Customise ↗
+      </strong>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+<!-- WHY -->
+
+<section class="section why" id="why">
+
+  <div class="label">
+    04 / THE YUGTRAX WAY
+  </div>
+
+  <div class="why-grid">
+
+    <h2>
+      Memories<br>
+      over <span>checklists.</span>
+    </h2>
+
+
+    <div class="principles">
+
+
+      <div class="principle">
+
+        <b>01</b>
+
+        <h3>
+          Experience first
+        </h3>
+
+        <p>
+          Trips should feel like stories,
+          not schedules.
+        </p>
+
+      </div>
+
+
+      <div class="principle">
+
+        <b>02</b>
+
+        <h3>
+          Young energy
+        </h3>
+
+        <p>
+          Made for curious travellers
+          who want something different.
+        </p>
+
+      </div>
+
+
+      <div class="principle">
+
+        <b>03</b>
+
+        <h3>
+          India first
+        </h3>
+
+        <p>
+          Discover the incredible diversity
+          right outside your door.
+        </p>
+
+      </div>
+
+
+      <div class="principle">
+
+        <b>04</b>
+
+        <h3>
+          People matter
+        </h3>
+
+        <p>
+          The people you meet can become
+          the best part of the journey.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MANIFESTO -->
+
+<section class="manifesto">
+
+  <div class="manifesto-text">
+
+    <p>
+      GO FARTHER.
+    </p>
+
+    <p>
+      GET LOST.
+    </p>
+
+    <p>
+      MEET PEOPLE.
+    </p>
+
+    <p>
+      MAKE STORIES.
+    </p>
+
+    <p>
+      COME BACK DIFFERENT.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <p class="eyebrow">
+    YOUR NEXT STORY STARTS HERE
+  </p>
+
+  <h2>
+    Ready to<br>
+    <span>journey into more?</span>
+  </h2>
+
+  <p>
+    Tell us where you're dreaming of going.
+    Include your destination, travel dates
+    and number of travellers, and we'll take it from there.
+  </p>
+
+  <a
+    class="btn dark-btn"
+    href="mailto:hello@yugtrax.com?subject=Plan%20my%20YugTraX%20journey"
+  >
+    Email YugTraX ↗
+  </a>
+
+  <div class="contact-links">
+
+    <a href="mailto:hello@yugtrax.com">
+      hello@yugtrax.com
+    </a>
+
+    <span>•</span>
+
+    <a
+      href="https://www.instagram.com/"
+      target="_blank"
+    >
+      Instagram
+    </a>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div>
+
+    <div class="logo">
+      YugTraX<sup>®</sup>
+    </div>
+
+    <p>
+      Journey Into More.
+    </p>
+
+  </div>
+
+  <small>
+    © <span id="year"></span>
+    YugTraX. All journeys reserved.
+  </small>
+
+</footer>
+
+
+<script>
+
+const nav =
+document.getElementById("nav");
+
+const menu =
+document.getElementById("menu");
+
+const links =
+document.getElementById("navLinks");
+
+
+window.addEventListener(
+  "scroll",
+  function(){
+
+    if(window.scrollY > 30){
+
+      nav.classList.add("scrolled");
+
+    }else{
+
+      nav.classList.remove("scrolled");
+
+    }
+
+  }
+);
+
+
+menu.addEventListener(
+  "click",
+  function(){
+
+    const open =
+    links.classList.toggle("open");
+
+    menu.setAttribute(
+      "aria-expanded",
+      open ? "true" : "false"
+    );
+
+    menu.textContent =
+    open ? "×" : "☰";
+
+  }
+);
+
+
+links.querySelectorAll("a").forEach(
+  function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        links.classList.remove("open");
+
+        menu.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menu.textContent="☰";
+
+      }
+    );
+
+  }
+);
+
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+</script>
+
+
+</body>
+</html>
